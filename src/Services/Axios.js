@@ -1,7 +1,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Card, Col, Container, Row } from 'react-bootstrap';
-
+import { BsFillCartPlusFill } from 'react-icons/bs'
+import ReadMoreReact from 'read-more-react';
 const Axios = () => {
    const [person, setPerson] = useState([])
    // const [name, setName] = useState([])
@@ -29,12 +30,19 @@ const Axios = () => {
                            <img className='img' src={item.image} alt="" />
                         </span>
                         <span>
-                           <h6><b>Price :</b> {item.price}</h6>
+                           <h6><b>Price :</b> {item.price} $</h6>
                         </span>
-                        <div></div>
+                        <div>
+                           <BsFillCartPlusFill />
+                        </div>
                         <div>
                            {/* <h6>{item.category}</h6> */}
-                           <span>
+                           <span style={{ cursor: 'pointer' }}>
+                              <ReadMoreReact text={item.description}
+                                 min={50}
+                                 ideal={60}
+                                 max={80}
+                                 readMoreText="...read more" />
                               {/* {item.description} */}
                            </span>
                         </div>
