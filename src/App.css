@@ -1,0 +1,18 @@
+.center {
+  /* margin: auto; */
+  width:  70%;
+  border: 1px solid #d9ddd4;
+  padding: 5px;
+  border-radius: 5px;
+  /* box-shadow: #293617; */
+}
+.loginCenter {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  border: 1px #fff;
+}
+.btnCenter {
+  margin: auto !important;
+  padding: 10px !important;
+}

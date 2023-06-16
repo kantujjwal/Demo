@@ -1,0 +1,71 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.br_c{
+  border: 1px solid rgb(156, 151, 151);
+}
+.br_b{
+  border: 1px solid rgb(9, 40, 218);
+}
+
+
+/* ----------------------NavBar---------------------- */
+
+.navbar {
+  position: fixed;
+  height: 50px;
+  top: 0;
+  width: 100%;
+  color: #f2f2f2;
+}
+
+/* ----------------------Login---------------------- */
+.login_Btn{
+  background-color: white;
+  border-radius: 5px;
+  border-color: beige;
+}
+.cart_icon{
+  background-color: transparent;
+  border: none;
+  color: white;
+}
+.login_card{
+  width: 70%;
+}
+
+/* ----------------------Footer---------------------- */
+
+.footer {
+  position: fixed;
+  height: 50px;
+  bottom: 0;
+  width: 100%;
+}
+
+/* ----------------------Home---------------------- */
+
+.img{
+  width: 150px;
+}
+
+.card_height{
+  height: auto;
+  padding: 1px;
+  margin-bottom: 3px;
+}
+
+.title{
+  font-size: 12px;
+}
