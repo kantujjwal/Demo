@@ -4,17 +4,20 @@ import { Card, Col, Container, Row } from 'react-bootstrap';
 import { AiFillStar } from 'react-icons/ai';
 import { BsFillCartPlusFill } from 'react-icons/bs'
 import ReadMoreReact from 'read-more-react';
+import Cart from '../Pages/Login/Home/Cart';
 const Product = () => {
    const [person, setPerson] = useState([])
    // const [name, setName] = useState([])
-   const [productInfo, setProductInfo] = useState([])
 
 
    const handelOnClick = (item) => {
 
-      setProductInfo([...productInfo, item])
+
+      const items = JSON.parse(localStorage.getItem('items'));
       // console.log('templateItem', templateItem)
-      localStorage.setItem('items', JSON.stringify(setProductInfo));
+      localStorage.setItem('items', JSON.stringify([...items, item]));
+      // localStorage.getItem('...productInfo, item');
+      // console.log('productInfo', ...productInfo, item)
    }
 
 
@@ -26,7 +29,7 @@ const Product = () => {
          })
          .catch(err => console.log(err));
    }, [])
-   console.log('productInfo', productInfo)
+   // console.log('productInfo', productInfo)
 
    return (
       <div className='  pt-3 pb-3'>
@@ -77,13 +80,14 @@ const Product = () => {
                            class="btn btn-success"
                            onClick={() => handelOnClick(item)}
                         >
-                           <BsFillCartPlusFill />&nbsp;
+                           <BsFillCartPlusFill />&nbsp;|
                            Add to Cart
                         </button>
                      </Card>
                   </Col>
                ))}
             </Row>
+
          </Container>
       </div>
    )
