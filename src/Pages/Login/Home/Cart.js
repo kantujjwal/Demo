@@ -19,7 +19,6 @@ const Cart = () => {
       const data = cartValue.filter(el => el.id !== item.id)
       setCartValue(data)
       localStorage.setItem('items', JSON.stringify([...data]));
-
    }
    return (
       <>
