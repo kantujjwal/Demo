@@ -119,3 +119,52 @@ code {
   font-size: 12px;
   color: gray;
 }
+
+.plus-minus {
+  background-color: transparent;
+  border-radius: 5px;
+  margin-bottom: 2px;
+  width: 30px;
+}
+
+.plus-minus button {
+  width: 100%;
+  border-radius: 5px;
+  color: solid black;
+}
+
+.plus-minus-text {
+  width: 50px !important;
+}
+
+.plus-minus-text input {
+  width: 100%;
+}
+
+/* -------------------------------------------- */
+.li_hov:hover {
+  border-bottom: 3px solid #ffff;
+  color: #ffff;
+  padding-bottom: 0.5rem;
+  text-decoration: none;
+}
+
+.li_style {
+  list-style: none;
+}
+
+.sub_tabs {
+  ul li {
+    margin-right: 15px !important;
+  }
+}
+
+ul li {
+  list-style: none !important;
+  padding-bottom: 10px !important;
+}
+
+.carousel-width {
+  width: 500px !important;
+  height: 500px !important;
+}
