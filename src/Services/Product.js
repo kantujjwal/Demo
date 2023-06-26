@@ -216,7 +216,7 @@ const Product = () => {
                <button
                   className='btn'
                   onClick={() => setOddEven(oddEven + 1)}
-                  style={{ backgroundColor: oddEven % 2 == 0 ? "green" : "red" }}
+                  style={{ backgroundColor: oddEven % 2 == 0 ? "red" : "black" }}
                >
                   {oddEven % 2 == 0 ? `On` : `OFF `}
                </button>

@@ -41,7 +41,7 @@ const MensClothing = () => {
             <button onClick={() => prev()}>Prev</button>
             <button onClick={() => next()}>Next</button>
             <ol style={{ display: 'flex' }}>
-               {pages.map((_, i) => (
+               {/* {pages.map((_, i) => (
                   <li key={i}>
                      <button
                         style={i === activePageIndex ? { opacity: 0.5 } : {}}
@@ -50,11 +50,11 @@ const MensClothing = () => {
                         {i + 1}
                      </button>
                   </li>
-               ))}
+               ))} */}
             </ol>
          </div>
       </>
-   );
-};
+   )
+}
 
 export default MensClothing;
