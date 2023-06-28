@@ -129,6 +129,14 @@ const Navbar = () => {
                         onClick={() => navigate('/Cart')}
                      >
                         <AiOutlineShoppingCart /> Cart
+                     </button> {' '}
+                     
+                     <button
+                        type='submit'
+                        className='btn login_Btn btn-light btn-block btn-outline-primary'
+                        onClick={() => navigate("/SignUp")}
+                     >
+                        Sign Up
                      </button>
 
                   </div>

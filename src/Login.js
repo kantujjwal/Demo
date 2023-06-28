@@ -25,26 +25,26 @@ function Login() {
             <Container className=' mt-5 pt-5 '>
                <form className='loginCenter' onSubmit={(e) => submitFrom(e)}>
 
-                  <div class="form-outline mb-4">
-                     <label class="form-label" for="form2Example1">Email address</label>
-                     <input onChange={(e) => handelOnchange(e)} type="email" id="form2Example1" class="form-control" />
+                  <div className="form-outline mb-4">
+                     <label className="form-label" for="form2Example1">Email address</label>
+                     <input onChange={(e) => handelOnchange(e)} type="email" id="form2Example1" className="form-control" />
                   </div>
 
-                  <div class="form-outline mb-4">
-                     <label class="form-label" for="form2Example2">Password</label>
-                     <input onChange={(e) => handelOnchange(e)} type="password" id="form2Example2" class="form-control" />
+                  <div className="form-outline mb-4">
+                     <label className="form-label" for="form2Example2">Password</label>
+                     <input onChange={(e) => handelOnchange(e)} type="password" id="form2Example2" className="form-control" />
                   </div>
 
-                  <div class="row mb-4">
-                     <div class="col d-flex justify-content-center">
+                  <div className="row mb-4">
+                     <div className="col d-flex justify-content-center">
 
-                        <div class="form-check">
-                           <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
-                           <label class="form-check-label" for="form2Example31"> Remember me </label>
+                        <div className="form-check">
+                           <input className="form-check-input" type="checkbox" value="" id="form2Example31" checked />
+                           <label className="form-check-label" for="form2Example31"> Remember me </label>
                         </div>
                      </div>
 
-                     <div class="col">
+                     <div className="col">
 
                         <a href="#!">Forgot password?</a>
                      </div>
@@ -52,35 +52,35 @@ function Login() {
 
                   <button
                      type="submit"
-                     class="btn btn-primary btn-block mb-4"
+                     className="btn btn-primary btn-block mb-4"
                   >
                      Sign in
                   </button>
 
-                  <div class="text-center">
+                  <div className="text-center">
                      <p>Not a member? <a href="#!">Register</a></p>
                      <div className='d-flex text-center'>
                         <p>or sign up with:</p>
                         <button type="button" className="btn btn-link  btn-floating mx-1">
-                           <i class="fab fa-facebook-f">
+                           <i className="fab fa-facebook-f">
                               <AiFillFacebook />
                            </i>
                         </button>
 
                         <button type="button" className="btn btn-link btn-floating mx-1">
-                           <i class="fab fa-google">
+                           <i className="fab fa-google">
                               <FcGoogle />
                            </i>
                         </button>
 
                         <button type="button" className="btn btn-link btn-floating mx-1">
-                           <i class="fab fa-twitter">
+                           <i className="fab fa-twitter">
                               <AiFillTwitterCircle />
                            </i>
                         </button>
 
                         <button type="button" className="btn btn-link btn-floating mx-1">
-                           <i class="fab fa-github">
+                           <i className="fab fa-github">
                               <AiFillGithub />
                            </i>
                         </button>

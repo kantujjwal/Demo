@@ -1,192 +1,279 @@
-import { ErrorMessage, Formik } from 'formik'
-import React, { useState } from 'react'
-import { Button, Col, Container, Form, Row } from 'react-bootstrap'
+import { ErrorMessage, Field, Formik } from "formik";
+import React, { useState } from "react";
+import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import * as Yup from "yup";
 
 const FormikForm = () => {
+  const [formikData, setFromikData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    address: "",
+    state: "",
+    country: "",
+    zipcode: "",
+  });
 
+  const validationSchema = Yup.object().shape({
+    name: Yup.string().required("Name is required"),
+    email: Yup.string().email("Invalid email").required("Email is required"),
+    phone: Yup.string()
+      .matches(/^\d+$/, "Phone number must be a number")
+      .min(10, "Phone number must be at least 10 digit")
+      .max(12, "Phone number should be not more than 12 digit")
+      .required("Phone Number is required"),
+    address: Yup.string().required("Address is required"),
+    state: Yup.string().required("State is required"),
+    country: Yup.string().required("Country is required"),
+    zipcode: Yup.string()
+      .matches(/^\d+$/, "Zip Code must be a number")
+      .min(6, "Zip Code must be at least 6 characters")
+      .max(6, "Zip Code should be 6 characters")
+      .required("Zip Code is required"),
+  });
 
-   const [formikData, setFromikData] = useState({
-      name: '',
-      email: '',
-      phone: '',
-      address: '',
-      state: '',
-      country: '',
-      zipcode: ''
-   })
+  const submitFromikForm = (values, { setSubmitting }) => {
+    values.preventDefault()
+    console.log(values);
+    setSubmitting(false);
+  };
 
-   const submitFromikForm = (values) => {
-      // values.preventDefault()
-      console.log('formikData', formikData)
-   }
+  //   const handelOnchange = (values) => {
+  //     setFromikData({ ...formikData, [values.target.name]: values.target.value });
+  //     console.log("e", values.target.value);
+  //   };
 
+  const initialValues = {
+    name: "",
+    email: "",
+    phone: "",
+    address: "",
+    state: "",
+    country: "",
+    zipcode: "",
+  };
 
-   const handelOnchange = (values) => {
-      setFromikData({ ...formikData, [values.target.name]: values.target.value })
-      console.log('e', values.target.value)
-   }
+  //   const validationForm = (values) => {
+  //     const errors = {};
 
-   const initialValues = {
-      name: '',
-      email: '',
-      phone: '',
-      address: '',
-      state: '',
-      country: '',
-      zipcode: ''
-   };
+  //     if (!values.name) {
+  //       errors.name = "Name is required";
+  //     }
 
-   const validationForm = (values) => {
-      const errors = {};
+  //     if (!values.email) {
+  //       errors.email = "Email is required";
+  //     } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
+  //       errors.email = "Invalid email address";
+  //     }
 
-      if (!values.name) {
-         errors.name = 'Name is required';
-      }
+  //     if (!values.phone) {
+  //       errors.phone = "Phone is required";
+  //     } else if (values.phone.min.length < 10) {
+  //       errors.phone = "Phone number must be 10 characters long";
+  //     } else if (values.phone.max.length < 10) {
+  //       errors.phone = "Phone number must be 10 characters long";
+  //     }
 
-      if (!values.email) {
-         errors.email = 'Email is required';
-      } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
-         errors.email = 'Invalid email address';
-      }
+  //     if (!values.zipcode) {
+  //       errors.zipcode = "Zip Code is required.";
+  //     } else if (!/^[1-9]{1}[0-9]{2}\\s{0, 1}[0-9]{3}$/i.test(values.zipcode)) {
+  //       errors.zipcode = "Invalid Zip Code";
+  //     }
 
-      if (!values.phone) {
-         errors.phone = 'Phone is required';
-      } else if (values.phone.min.length < 10) {
-         errors.phone = 'Phone number must be 10 characters long';
-      } else if (values.phone.max.length < 10) {
-         errors.phone = 'Phone number must be 10 characters long';
-      }
+  //     return errors;
+  //   };
 
-      return errors;
-   };
+  return (
+    <>
+      <div className="pt-3 pb-3">
+        <Container className="mt-5 pt-5 pb-5">
+          <h1 className="text-center mb-4">Formik Form</h1>
+          <Formik
+            initialValues={{
+              name: "",
+              email: "",
+              phone: "",
+              address: "",
+              state: "",
+              country: "",
+              zipcode: "",
+            }}
+            validationSchema={validationSchema}
+            onSubmit={submitFromikForm}
+            // validate={validationForm}
+          >
+            {({ isSubmitting }) => (
+              <Form className="align-item-center">
+                <Row className="my-4 col-sm-12  col-lg-6 ">
+                  <Col sm={12} lg={12}>
+                    <>
+                      <Form.Label>
+                        Name: <span className="text-danger">*</span>{" "}
+                      </Form.Label>
+                      <Field
+                        placeholder="Full Name"
+                        className="form-control"
+                        type="text"
+                        id="name"
+                        name="name"
+                      />
+                      <ErrorMessage
+                        name="name"
+                        component="div"
+                        className="error text-danger"
+                      />
+                    </>
+                  </Col>
 
-   return (
-      <>
-         <div className='pt-3 pb-3'>
-            <Container className='mt-5 pt-5 pb-5'>
-               <h1 className="text-center mb-4">Formik Form</h1>
-               <Formik
-                  initialValues={initialValues}
-                  onSubmit={(values) => submitFromikForm(values)}
-                  validate={validationForm}
-               >
-                  {({ values, errors }) => (
-                     <Form className='align-item-center'>
-                        <Row className="my-4 col-sm-12  col-lg-6 ">
-                           <Col sm={12} lg={12}>
-                              <Form.Group className="">
-                                 <Form.Label>
-                                    Name: <span className="text-danger">*</span>{' '}
-                                 </Form.Label>
-                                 <Form.Control
-                                    placeholder='Full Name'
-                                    name='name'
-                                    value={values.name}
-                                    error={errors.name}
-                                    onChange={(values) => handelOnchange(values)}
-                                 />
-                              </Form.Group>
-                           </Col>
+                  <Col sm={12} lg={12}>
+                    <>
+                      <Form.Label>
+                        E-mail: <span className="text-danger">*</span>{" "}
+                      </Form.Label>
+                      <Field
+                        className="form-control"
+                        placeholder="E-mail"
+                        name="email"
+                        id="email"
+                        // error={errors.email}
+                        // onChange={(e) => handelOnchange(e)}
+                      />
+                      <ErrorMessage
+                        name="email"
+                        component="div"
+                        className="error text-danger"
+                      />
+                    </>
+                  </Col>
 
-                           <Col sm={12} lg={12}>
-                              <Form.Group className="">
-                                 <Form.Label>
-                                    E-mail: <span className="text-danger">*</span>{' '}
-                                 </Form.Label>
-                                 <Form.Control
-                                    placeholder='E-mail'
-                                    name='email'
-                                    error={errors.email}
-                                    onChange={(e) => handelOnchange(e)}
-                                 />
-                              </Form.Group>
-                           </Col>
+                  <Col sm={12} lg={12}>
+                    <>
+                      <Form.Label>
+                        Phone: <span className="text-danger">*</span>{" "}
+                      </Form.Label>
+                      <Field
+                        className="form-control"
+                        placeholder="Phone Number"
+                        name="phone"
+                        id="phone"
+                        type="text"
+                        // error={errors.phone}
+                        // onChange={(e) => handelOnchange(e)}
+                      />
+                      <ErrorMessage
+                        name="phone"
+                        component="div"
+                        className="error text-danger"
+                      />
+                    </>
+                  </Col>
 
-                           <Col sm={12} lg={12}>
-                              <Form.Group className="">
-                                 <Form.Label>
-                                    Phone: <span className="text-danger">*</span>{' '}
-                                 </Form.Label>
-                                 <Form.Control
-                                    placeholder='Phone Number'
-                                    name='text'
-                                    error={errors.phone}
-                                    onChange={(e) => handelOnchange(e)}
-                                 />
-                              </Form.Group>
-                           </Col>
+                  <Col sm={12} lg={12}>
+                    <>
+                      <Form.Label>
+                        Address: <span className="text-danger">*</span>{" "}
+                      </Form.Label>
+                      <Field
+                        className="form-control"
+                        placeholder="Address"
+                        name="address"
+                        id="address"
+                        type="text"
+                        // error={errors.address}
+                        // onChange={(e) => handelOnchange(e)}
+                      />
+                      <ErrorMessage
+                        name="address"
+                        component="div"
+                        className="error text-danger"
+                      />
+                    </>
+                  </Col>
 
-                           <Col sm={12} lg={12}>
-                              <Form.Group className="">
-                                 <Form.Label>
-                                    Address: <span className="text-danger">*</span>{' '}
-                                 </Form.Label>
-                                 <Form.Control
-                                    placeholder='Address'
-                                    name='text'
-                                    error={errors.address}
-                                    onChange={(e) => handelOnchange(e)}
-                                 />
-                              </Form.Group>
-                           </Col>
+                  <Col sm={12} lg={12}>
+                    <>
+                      <Form.Label>
+                        State: <span className="text-danger">*</span>{" "}
+                      </Form.Label>
+                      <Field
+                        className="form-control"
+                        placeholder="State"
+                        name="state"
+                        id="state"
+                        type="text"
+                        // error={errors.state}
+                        // onChange={(e) => handelOnchange(e)}
+                      />
+                      <ErrorMessage
+                        name="state"
+                        component="div"
+                        className="error text-danger"
+                      />
+                    </>
+                  </Col>
 
-                           <Col sm={12} lg={12}>
-                              <Form.Group className="">
-                                 <Form.Label>
-                                    State: <span className="text-danger">*</span>{' '}
-                                 </Form.Label>
-                                 <Form.Control
-                                    placeholder='State'
-                                    name='text'
-                                    error={errors.state}
-                                    onChange={(e) => handelOnchange(e)}
-                                 />
-                              </Form.Group>
-                           </Col>
+                  <Col sm={12} lg={12}>
+                    <>
+                      <Form.Label>
+                        Country: <span className="text-danger">*</span>{" "}
+                      </Form.Label>
+                      <Field
+                        className="form-control"
+                        placeholder="Country"
+                        name="country"
+                        id="country"
+                        type="text"
+                        // error={errors.country}
+                        // onChange={(e) => handelOnchange(e)}
+                      />
+                      <ErrorMessage
+                        name="country"
+                        component="div"
+                        className="error text-danger"
+                      />
+                    </>
+                  </Col>
 
+                  <Col sm={12} lg={12}>
+                    <>
+                      <Form.Label>
+                        Zip Code: <span className="text-danger">*</span>{" "}
+                      </Form.Label>
+                      <Field
+                        className="form-control"
+                        placeholder="Zip Code"
+                        name="zipcode"
+                        id="zipcode"
+                        type="text"
+                        // error={errors.zipcode}
+                        // onChange={(e) => handelOnchange(e)}
+                      />
+                      <ErrorMessage
+                        name="zipcode"
+                        component="div"
+                        className="error text-danger"
+                      />
+                    </>
+                  </Col>
+                </Row>
 
-                           <Col sm={12} lg={12}>
-                              <Form.Group className="">
-                                 <Form.Label>
-                                    Country: <span className="text-danger">*</span>{' '}
-                                 </Form.Label>
-                                 <Form.Control
-                                    placeholder='Country'
-                                    name='text'
-                                    error={errors.country}
-                                    onChange={(e) => handelOnchange(e)}
-                                 />
-                              </Form.Group>
-                           </Col>
+                <div className="d-flex my-4  ">
+                  <Button
+                    variant="primary"
+                    className="px-4"
+                    name="submit"
+                    disabled={isSubmitting}
+                  >
+                    Submit
+                  </Button>
+                </div>
+              </Form>
+            )}
+          </Formik>
+        </Container>
+      </div>
+    </>
+  );
+};
 
-
-                           <Col sm={12} lg={12}>
-                              <Form.Group className="">
-                                 <Form.Label>
-                                    Zip Code: <span className="text-danger">*</span>{' '}
-                                 </Form.Label>
-                                 <Form.Control
-                                    placeholder='Zip Code'
-                                    name='text'
-                                    error={errors.zipcode}
-                                    onChange={(e) => handelOnchange(e)}
-                                 />
-                              </Form.Group>
-                           </Col>
-                        </Row>
-
-                        <div className="d-flex my-4  ">
-                           <Button variant="primary" className="px-4" name="submit">
-                              Submit
-                           </Button>
-                        </div>
-                     </Form>
-                  )}
-               </Formik>
-            </Container>
-         </div>
-      </>
-   )
-}
-
-export default FormikForm
+export default FormikForm;
