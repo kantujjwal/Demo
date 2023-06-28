@@ -20,6 +20,10 @@ code {
   border: 1px solid rgb(9, 40, 218);
 }
 
+.br_r {
+  border-radius: 5px;
+}
+
 
 /* ----------------------NavBar---------------------- */
 

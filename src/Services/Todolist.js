@@ -26,7 +26,7 @@ function TodoForm({ addTodo }) {
    const submitForm = e => {
       e.preventDefault()
       if (!value) return
-      console.log('To Do Value:', value)
+      // console.log('To Do Value:', value)
       addTodo(value)
       setValue("")
    }
@@ -66,7 +66,7 @@ function Todolist() {
 
    const removeTodo = index => {
       const newTodos = [...todos];
-      console.log('Removed Index', 1)
+      console.log('Removed Index', index)
       newTodos.splice(index, 1);
       setTodos(newTodos);
    }

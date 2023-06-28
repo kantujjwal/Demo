@@ -124,7 +124,8 @@ const Navbar = () => {
                      </button>
                      &nbsp;
                      <button
-                        className='p-1 cart_icon'
+                        className='p-1 btn btn-block login_Btn btn-outline-primary btn-light'
+                        // cart_icon
                         onClick={() => navigate('/Cart')}
                      >
                         <AiOutlineShoppingCart /> Cart
