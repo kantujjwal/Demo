@@ -7,18 +7,24 @@ import { Container } from 'react-bootstrap'
 // import Todolist from '../../../Services/Todolist'
 // import Javascript from '../../../Services/Javascript'
 import FormikForm from '../../../Services/FormikForm'
+import Store from '../../../Services/Store'
+import Timer from '../../../Services/Timer'
+import PieChart from '../../../Services/PieChart '
 // import Grid from '../../../Services/Grid'
 
 function Home() {
    return (
       <div>
          <Container>
-            {/* <Product />
-            <MensClothing />
-            <Theme />
-            <Todolist />
-            <Javascript /> */}
-            <FormikForm />
+            {/* <Product /> */}
+            {/* <MensClothing /> */}
+            {/* <Theme /> */}
+            {/* <Todolist /> */}
+            {/* <Javascript /> */}
+            {/* <FormikForm /> */}
+            {/* <Store /> */}
+            <Timer/>
+            {/* <PieChart/> */}
             {/* <Grid /> */}
          </Container>
       </div>

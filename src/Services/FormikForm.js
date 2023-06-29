@@ -1,9 +1,29 @@
-import { ErrorMessage, Field, Formik } from "formik";
+import { ErrorMessage, Field, Formik, Form } from "formik";
 import React, { useState } from "react";
-import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import { Button, Col, Container, Row } from "react-bootstrap";
 import * as Yup from "yup";
 
+const validationSchema = Yup.object().shape({
+  name: Yup.string().required("Name is required"),
+  email: Yup.string().email("Invalid email").required("Email is required"),
+  phone: Yup.string()
+    .matches(/^\d+$/, "Phone number must be a number")
+    .min(10, "Phone number must be at least 10 digit")
+    .max(12, "Phone number should be not more than 12 digit")
+    .required("Phone Number is required"),
+  address: Yup.string().required("Address is required"),
+  state: Yup.string().required("State is required"),
+  country: Yup.string().required("Country is required"),
+  zipcode: Yup.string()
+    .matches(/^\d+$/, "Zip Code must be a number")
+    .min(6, "Zip Code must be at least 6 characters")
+    .max(6, "Zip Code should be 6 characters")
+    .required("Zip Code is required"),
+});
+
 const FormikForm = () => {
+
+
   const [formikData, setFromikData] = useState({
     name: "",
     email: "",
@@ -14,27 +34,9 @@ const FormikForm = () => {
     zipcode: "",
   });
 
-  const validationSchema = Yup.object().shape({
-    name: Yup.string().required("Name is required"),
-    email: Yup.string().email("Invalid email").required("Email is required"),
-    phone: Yup.string()
-      .matches(/^\d+$/, "Phone number must be a number")
-      .min(10, "Phone number must be at least 10 digit")
-      .max(12, "Phone number should be not more than 12 digit")
-      .required("Phone Number is required"),
-    address: Yup.string().required("Address is required"),
-    state: Yup.string().required("State is required"),
-    country: Yup.string().required("Country is required"),
-    zipcode: Yup.string()
-      .matches(/^\d+$/, "Zip Code must be a number")
-      .min(6, "Zip Code must be at least 6 characters")
-      .max(6, "Zip Code should be 6 characters")
-      .required("Zip Code is required"),
-  });
-
-  const submitFromikForm = (values, { setSubmitting }) => {
-    values.preventDefault()
-    console.log(values);
+  const submitFormikForm = (values, { setSubmitting }) => {
+    //  values.preventDefault()
+    console.log("Hello", values);
     setSubmitting(false);
   };
 
@@ -43,15 +45,15 @@ const FormikForm = () => {
   //     console.log("e", values.target.value);
   //   };
 
-  const initialValues = {
-    name: "",
-    email: "",
-    phone: "",
-    address: "",
-    state: "",
-    country: "",
-    zipcode: "",
-  };
+  //   const initialValues = {
+  //     name: "",
+  //     email: "",
+  //     phone: "",
+  //     address: "",
+  //     state: "",
+  //     country: "",
+  //     zipcode: "",
+  //   };
 
   //   const validationForm = (values) => {
   //     const errors = {};
@@ -99,17 +101,17 @@ const FormikForm = () => {
               zipcode: "",
             }}
             validationSchema={validationSchema}
-            onSubmit={submitFromikForm}
+            onSubmit={submitFormikForm}
             // validate={validationForm}
           >
             {({ isSubmitting }) => (
-              <Form className="align-item-center">
+              <Form>
                 <Row className="my-4 col-sm-12  col-lg-6 ">
                   <Col sm={12} lg={12}>
                     <>
-                      <Form.Label>
+                      <label>
                         Name: <span className="text-danger">*</span>{" "}
-                      </Form.Label>
+                      </label>
                       <Field
                         placeholder="Full Name"
                         className="form-control"
@@ -127,9 +129,9 @@ const FormikForm = () => {
 
                   <Col sm={12} lg={12}>
                     <>
-                      <Form.Label>
+                      <label>
                         E-mail: <span className="text-danger">*</span>{" "}
-                      </Form.Label>
+                      </label>
                       <Field
                         className="form-control"
                         placeholder="E-mail"
@@ -148,9 +150,9 @@ const FormikForm = () => {
 
                   <Col sm={12} lg={12}>
                     <>
-                      <Form.Label>
+                      <label>
                         Phone: <span className="text-danger">*</span>{" "}
-                      </Form.Label>
+                      </label>
                       <Field
                         className="form-control"
                         placeholder="Phone Number"
@@ -170,9 +172,9 @@ const FormikForm = () => {
 
                   <Col sm={12} lg={12}>
                     <>
-                      <Form.Label>
+                      <label>
                         Address: <span className="text-danger">*</span>{" "}
-                      </Form.Label>
+                      </label>
                       <Field
                         className="form-control"
                         placeholder="Address"
@@ -192,9 +194,9 @@ const FormikForm = () => {
 
                   <Col sm={12} lg={12}>
                     <>
-                      <Form.Label>
+                      <label>
                         State: <span className="text-danger">*</span>{" "}
-                      </Form.Label>
+                      </label>
                       <Field
                         className="form-control"
                         placeholder="State"
@@ -214,9 +216,9 @@ const FormikForm = () => {
 
                   <Col sm={12} lg={12}>
                     <>
-                      <Form.Label>
+                      <label>
                         Country: <span className="text-danger">*</span>{" "}
-                      </Form.Label>
+                      </label>
                       <Field
                         className="form-control"
                         placeholder="Country"
@@ -236,9 +238,9 @@ const FormikForm = () => {
 
                   <Col sm={12} lg={12}>
                     <>
-                      <Form.Label>
+                      <label>
                         Zip Code: <span className="text-danger">*</span>{" "}
-                      </Form.Label>
+                      </label>
                       <Field
                         className="form-control"
                         placeholder="Zip Code"
@@ -259,9 +261,9 @@ const FormikForm = () => {
 
                 <div className="d-flex my-4  ">
                   <Button
+                    type="submit"
                     variant="primary"
                     className="px-4"
-                    name="submit"
                     disabled={isSubmitting}
                   >
                     Submit
