@@ -10,6 +10,7 @@ import FormikForm from '../../../Services/FormikForm'
 import Store from '../../../Services/Store'
 import Timer from '../../../Services/Timer'
 import PieChart from '../../../Services/PieChart '
+import Manipulating from '../../../Services/Manipulating'
 // import Grid from '../../../Services/Grid'
 
 function Home() {
@@ -21,9 +22,10 @@ function Home() {
             {/* <Theme /> */}
             {/* <Todolist /> */}
             {/* <Javascript /> */}
-            {/* <FormikForm /> */}
+            <FormikForm />
             {/* <Store /> */}
-            <Timer/>
+            {/* <Timer /> */}
+            <Manipulating />
             {/* <PieChart/> */}
             {/* <Grid /> */}
          </Container>

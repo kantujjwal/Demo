@@ -1,8 +1,8 @@
 import { ErrorMessage, Field, Formik, Form } from "formik";
 import React, { useState } from "react";
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Button, Col, Container, Row, } from "react-bootstrap";
 import * as Yup from "yup";
-
+import styled from 'styled-components';
 const validationSchema = Yup.object().shape({
   name: Yup.string().required("Name is required"),
   email: Yup.string().email("Invalid email").required("Email is required"),
@@ -85,6 +85,16 @@ const FormikForm = () => {
   //     return errors;
   //   };
 
+
+  const Button = styled.button`
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+`;
+
   return (
     <>
       <div className="pt-3 pb-3">
@@ -102,7 +112,7 @@ const FormikForm = () => {
             }}
             validationSchema={validationSchema}
             onSubmit={submitFormikForm}
-            // validate={validationForm}
+          // validate={validationForm}
           >
             {({ isSubmitting }) => (
               <Form>
@@ -137,8 +147,6 @@ const FormikForm = () => {
                         placeholder="E-mail"
                         name="email"
                         id="email"
-                        // error={errors.email}
-                        // onChange={(e) => handelOnchange(e)}
                       />
                       <ErrorMessage
                         name="email"
@@ -159,8 +167,6 @@ const FormikForm = () => {
                         name="phone"
                         id="phone"
                         type="text"
-                        // error={errors.phone}
-                        // onChange={(e) => handelOnchange(e)}
                       />
                       <ErrorMessage
                         name="phone"
@@ -181,8 +187,6 @@ const FormikForm = () => {
                         name="address"
                         id="address"
                         type="text"
-                        // error={errors.address}
-                        // onChange={(e) => handelOnchange(e)}
                       />
                       <ErrorMessage
                         name="address"
@@ -203,8 +207,6 @@ const FormikForm = () => {
                         name="state"
                         id="state"
                         type="text"
-                        // error={errors.state}
-                        // onChange={(e) => handelOnchange(e)}
                       />
                       <ErrorMessage
                         name="state"
@@ -225,8 +227,6 @@ const FormikForm = () => {
                         name="country"
                         id="country"
                         type="text"
-                        // error={errors.country}
-                        // onChange={(e) => handelOnchange(e)}
                       />
                       <ErrorMessage
                         name="country"
@@ -247,8 +247,6 @@ const FormikForm = () => {
                         name="zipcode"
                         id="zipcode"
                         type="text"
-                        // error={errors.zipcode}
-                        // onChange={(e) => handelOnchange(e)}
                       />
                       <ErrorMessage
                         name="zipcode"
@@ -272,6 +270,12 @@ const FormikForm = () => {
               </Form>
             )}
           </Formik>
+
+          <div>
+            <h1 className="text-center mb-4">Welcome to Styled Component</h1>
+            <Button>Click Me</Button>
+          </div>
+
         </Container>
       </div>
     </>

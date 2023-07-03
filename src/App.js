@@ -11,6 +11,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
+        {/* <input type='date' format="dd/MM/yyyy" /> */}
         <Navbar />
         <Navigation />
         <Footer />
