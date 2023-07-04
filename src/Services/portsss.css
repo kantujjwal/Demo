@@ -1,0 +1,47 @@
+/* Portfolio.css */
+
+/* ... Existing CSS styles ... */
+
+.portfolio .section.projects .project {
+   display: flex;
+   align-items: center;
+   margin-bottom: 20px;
+   opacity: 0;
+   /* Set initial opacity to 0 */
+   transform: translateY(20px);
+   /* Set initial translation on Y-axis */
+   transition: opacity 0.3s ease, transform 0.3s ease;
+   /* Add transitions for opacity and transform */
+}
+
+.portfolio .section.projects .project.animated {
+   opacity: 1;
+   /* Change opacity to 1 when scrolled into view */
+   transform: translateY(0);
+   /* Reset translation when scrolled into view */
+}
+
+.portfolio .section.projects .project img {
+   width: 150px;
+   margin-right: 20px;
+   border-radius: 4px;
+}
+
+.portfolio .section.projects .project-info {
+   opacity: 0;
+   /* Set initial opacity to 0 */
+   transform: translateY(20px);
+   /* Set initial translation on Y-axis */
+   transition: opacity 0.3s ease, transform 0.3s ease;
+   /* Add transitions for opacity and transform */
+}
+
+.portfolio .section.projects .project-info.animated {
+   opacity: 1;
+   /* Change opacity to 1 when scrolled into view */
+   transform: translateY(0);
+   /* Reset translation when scrolled into view */
+}
+
+/* Responsive styles */
+/* ... Existing responsive styles ... */
