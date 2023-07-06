@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, Modal } from 'react-bootstrap';
 import styled from 'styled-components';
 
 const IncomeExpense = () => {
@@ -21,23 +21,38 @@ const IncomeExpense = () => {
   border-radius: 4px;
   cursor: pointer;
 `;
-
+   const formsClose = () => {
+      closeModal(false);
+   };
    return (
       <div className='pt-3 pb-3'>
          <Container className='mt-5 pt-5 pb-5'>
             <Button onClick={openModal}>Add Income Details</Button>
 
-            {isOpen && (
-               <div className="modal">
-                  <div className="modal-content">
-                     <span className="close" onClick={closeModal}>
-                        {/* &times; */}
-                     </span>
-                     <h2>Income Details</h2>
-                     <p>HI</p>
-                  </div>
-               </div>
-            )}
+            {/* {isOpen && ( */}
+            <Modal show={isOpen} centered size="md">
+               <Modal.Header closeButton onClick={closeModal}>
+                  <Modal.Title className="d-flex align-items-center">
+                     {/* <GoAlert style={{ color: '#ff8f39' }} className="mx-1" />  */}
+                     Income Details
+                  </Modal.Title>
+               </Modal.Header>
+               <Modal.Body>
+                  <h6>Hi</h6>
+               </Modal.Body>
+               <Modal.Footer>
+                  <Button variant="danger" className="d-flex justify-content-end danger"
+                     onClick={() => formsClose()}
+                  >
+                     NO
+                  </Button>
+                  <Button className="d-flex justify-content-end"
+                  >
+                     YES
+                  </Button>
+               </Modal.Footer>
+            </Modal>
+            {/* )} */}
          </Container>
       </div>
    );

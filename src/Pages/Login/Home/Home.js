@@ -23,7 +23,7 @@ function Home() {
    return (
       <div>
          <Container>
-            <Product />
+            {/* <Product /> */}
             {/* <MensClothing /> */}
             {/* <Theme /> */}
             {/* <Todolist /> */}
