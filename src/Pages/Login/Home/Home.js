@@ -1,16 +1,22 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
 // import { AiOutlineShoppingCart } from 'react-icons/ai'
-// import Product from '../../../Services/Product'
+import Product from '../../../Services/Product'
+import IncomeExpense from '../../../Services/IncomeExpense'
 // import MensClothing from '../../../Services/MensClothing'
 // import Theme from '../../../Services/Theme'
 // import Todolist from '../../../Services/Todolist'
 // import Javascript from '../../../Services/Javascript'
-import FormikForm from '../../../Services/FormikForm'
-import Store from '../../../Services/Store'
-import Timer from '../../../Services/Timer'
-import PieChart from '../../../Services/PieChart '
-import Manipulating from '../../../Services/Manipulating'
+// import FormikForm from '../../../Services/FormikForm'
+// import Store from '../../../Services/Store'
+// import Timer from '../../../Services/Timer'
+// import PieChart from '../../../Services/PieChart '
+// import Manipulating from '../../../Services/Manipulating'
+// import LeapYear from '../../../Services/LeapYear'
+// import Leap from '../../../Services/Leap'
+// import Port from '../../../Services/Port'
+// import Ports from '../../../Services/Ports'
+// import Portfolio from '../../../Services/Portfolio'
 // import Grid from '../../../Services/Grid'
 
 function Home() {
@@ -22,12 +28,18 @@ function Home() {
             {/* <Theme /> */}
             {/* <Todolist /> */}
             {/* <Javascript /> */}
-            <FormikForm />
+            {/* <FormikForm /> */}
             {/* <Store /> */}
             {/* <Timer /> */}
-            <Manipulating />
+            {/* <Manipulating /> */}
+            {/* <LeapYear /> */}
+            {/* <Leap /> */}
             {/* <PieChart/> */}
             {/* <Grid /> */}
+            {/* <Port /> */}
+            {/* <Ports /> */}
+            {/* <Portfolio /> */}
+            <IncomeExpense />
          </Container>
       </div>
    )

@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Container, Toast } from 'react-bootstrap'
 import { AiOutlineShoppingCart } from 'react-icons/ai'
-import { SiFlipkart } from 'react-icons/si'
+// import { SiFlipkart } from 'react-icons/si'
 import { useNavigate } from 'react-router-dom';
 import { Switch } from 'antd';
 
@@ -72,7 +72,7 @@ const Navbar = () => {
    //    setTheme(isCurrentDark ? 'light' : 'dark');
    // };
 
-   const items = JSON.parse(localStorage.getItem('items'));
+   // const items = JSON.parse(localStorage.getItem('items'));
 
    return (
       <>
@@ -130,7 +130,7 @@ const Navbar = () => {
                      >
                         <AiOutlineShoppingCart /> Cart
                      </button> {' '}
-                     
+
                      <button
                         type='submit'
                         className='btn login_Btn btn-light btn-block btn-outline-primary'

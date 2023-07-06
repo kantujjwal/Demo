@@ -10,6 +10,7 @@ import { BsFillLightbulbOffFill, BsLightbulbFill } from 'react-icons/bs';
 const Product = () => {
    const [person, setPerson] = useState([])
    // const [name, setName] = useState([])
+   const [cartItems, setCartItems] = ([])
 
 
    var numbers = [1, 2, 3, 4, 5];
@@ -21,13 +22,21 @@ const Product = () => {
    console.log(updatedNums);
 
    const handelOnClick = (item) => {
-
-      const items = JSON.parse(localStorage.getItem('items'));
-      // console.log('templateItem', templateItem)
-      localStorage.setItem('items', JSON.stringify([...items, item]));
-      // localStorage.getItem('...productInfo, item');
-      // console.log('productInfo', ...productInfo, item)
+      console.log('item', item)
+      localStorage.setItem('key', '[...cartItems, item]');
    }
+
+   // const handelOnClick = (item) => {
+   //    setCartItems([...cartItems, item])
+   //    // console.log('item', item)
+   //    // const items = JSON.parse(localStorage.getItem('item'));
+
+   //    const items = JSON.parse(localStorage.getItem('items'));
+   //    // console.log('templateItem', templateItem)
+   //    localStorage.setItem('items', JSON.stringify([...items, item]));
+   //    // localStorage.getItem('...productInfo, item');
+   //    // console.log('productInfo', ...productInfo, item)
+   // }
 
 
    useEffect(() => {
@@ -98,10 +107,7 @@ const Product = () => {
                   <Col className='' lg={3} md={4} sm={3}>
                      <Card className=' p-2 pb-2 card_height '>
                         <div className='p-1 title'>
-                           {/* <ReadMoreReact text={item.title}
-                              min={5}
-                              ideal={7}
-                              max={9} /> */}
+                           {/* <ReadMoreReact text={item.title} min={5} ideal={7} max={9} /> */}
                            <b>
                               {item.title}
                            </b>
