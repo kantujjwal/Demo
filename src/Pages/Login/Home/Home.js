@@ -23,14 +23,18 @@ function Home() {
    return (
       <div>
          <Container>
-            {/* <Product /> */}
+            <Product />
             {/* <MensClothing /> */}
             {/* <Theme /> */}
             {/* <Todolist /> */}
             {/* <Javascript /> */}
             {/* <FormikForm /> */}
+            {/* <FormikForm /> */}
             {/* <Store /> */}
             {/* <Timer /> */}
+            {/* <Manipulating /> */}
+            {/* <LeapYear /> */}
+            {/* <Leap /> */}
             {/* <Manipulating /> */}
             {/* <LeapYear /> */}
             {/* <Leap /> */}

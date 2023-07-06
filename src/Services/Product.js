@@ -108,6 +108,7 @@ const Product = () => {
                      <Card className=' p-2 pb-2 card_height '>
                         <div className='p-1 title'>
                            {/* <ReadMoreReact text={item.title} min={5} ideal={7} max={9} /> */}
+                           {/* <ReadMoreReact text={item.title} min={5} ideal={7} max={9} /> */}
                            <b>
                               {item.title}
                            </b>
@@ -160,7 +161,7 @@ const Product = () => {
                      style={nameStyles}>{name}</div>)
                }
             </div>
-            <div className='d-flex pt-3'>
+            {/* <div className='d-flex pt-3'>
                <form>
                   <label>Enter text</label>
                   &nbsp;
@@ -168,9 +169,9 @@ const Product = () => {
                      style={onChangeStyle}
                      onChange={onInputChange} />
                </form>
-            </div>
+            </div> */}
 
-            <div className='pt-3'>
+            {/* <div className='pt-3'>
                <form>
                   <label> Enter text </label>
                   &nbsp;
@@ -198,20 +199,20 @@ const Product = () => {
                   </textarea>
                   <div>Entered Value: {state.inputValue}</div>
                </div>
-            </div>
+            </div> */}
             <br />
 
-            <div>
+            {/* <div>
                <p>You clicked {click} times</p>
 
                <button onClick={() => setClick(click + 1)}>
                   Click me
                </button>
-            </div>
+            </div> */}
             <br />
 
-            <div>
-               {/* <p>You've clicked {oddEven} times!</p> */}
+            {/* <div>
+               <p>You've clicked {oddEven} times!</p>
 
                <p>The number of times you have clicked
                   is {oddEven % 2 == 0 ? 'even!' : 'odd!'}</p>
@@ -226,7 +227,7 @@ const Product = () => {
                >
                   {oddEven % 2 == 0 ? `On` : `OFF `}
                </button>
-            </div>
+            </div> */}
          </Container>
       </div>
 
